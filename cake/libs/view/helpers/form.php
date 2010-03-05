@@ -712,7 +712,23 @@ class FormHelper extends AppHelper {
 				if (isset($options['dateFormat']) && $options['dateFormat'] === 'NONE') {
 					$labelAttributes['for'] .= 'Hour';
 				} else {
-					$labelAttributes['for'] .= 'Month';
+					if (isset($options['dateFormat'])) {
+						$firstSelect = substr($options['dateFormat'], 0, 1);
+		
+						switch ($firstSelect) {
+							case 'D':
+								$labelAttributes['for'].= 'Day';
+							break;
+							case 'M':
+								$labelAttributes['for'].= 'Month';
+							break;
+							case 'Y':
+								$labelAttributes['for'].= 'Year';
+							break;
+						}
+					} else {
+						$labelAttributes['for'].= 'Month';
+					}
 				}
 			} elseif ($options['type'] === 'time') {
 				$labelAttributes['for'] .= 'Hour';
