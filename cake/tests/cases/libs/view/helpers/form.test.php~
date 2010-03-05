@@ -5365,7 +5365,7 @@ class FormHelperTest extends CakeTestCase {
 	}
 	
 /**
-* When changing the date format, the label should always focus the first select box when
+* When changing the date format, the label should always focus the first date box when
 * clicked.
 *
 **/
